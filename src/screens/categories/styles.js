@@ -7,6 +7,9 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
+    containerlist: {
+        flex: 1
+    },
     title: {
         fontFamily: 'Lato-Regular'
     }
