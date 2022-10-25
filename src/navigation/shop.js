@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 const ShopNavigator = () => {
     return (
         <Stack.Navigator 
-            initialRouteName="Categorías"
+            initialRouteName="Categories"
             screenOptions={{
                 headerStyle: {
                     backgroundColor: isAndroid ? colors.primary : colors.secondary,
@@ -21,7 +21,7 @@ const ShopNavigator = () => {
             }}
         >
             <Stack.Screen 
-                name="Categorías" 
+                name="Categories" 
                 component={Categories}
                 options={{
                     title: 'Tipos de panes',
@@ -29,13 +29,19 @@ const ShopNavigator = () => {
                 }}
             />
             <Stack.Screen 
-                name="Productos" 
+                name="Products" 
                 component={Products}
                 options={({route}) => ({
                     title: route.params.name
                 })}
             />
-            <Stack.Screen name="Producto" component={Product}/>
+            <Stack.Screen 
+                name="Product" 
+                component={Product}
+                options={({route}) => ({
+                    title: route.params.name
+                })}
+            />
         </Stack.Navigator>
     )
 }
