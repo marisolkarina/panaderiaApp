@@ -1,13 +1,13 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from 'react-native'
-import { styles } from "./styles";
+import  React from 'react' ;
 
-const CategoryItem = ({item, onSelected}) => {
-    
-    return(
+import { View, Text, TouchableOpacity } from 'react-native' ;
+import { styles } from './styles';
+
+const CategoryItem = ({ item, onSelected }) => {
+    return (
         <View style={styles.container}>
             <TouchableOpacity 
-                style={{...styles.contentContainer, backgroundColor: item.color}}
+                style={{ ...styles.contentContainer, backgroundColor: item.color }}
                 onPress={() => onSelected(item)}>
                     <View>
                         <Text style={styles.title}>{item.title}</Text>
@@ -16,5 +16,4 @@ const CategoryItem = ({item, onSelected}) => {
         </View>
     )
 }
-
 export default CategoryItem;

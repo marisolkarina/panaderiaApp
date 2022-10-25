@@ -1,23 +1,22 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { View, Text, Button, FlatList } from "react-native";
 import { CategoryItem } from "../../components";
 import { styles } from "./styles";
 import { categories } from "../../constants/data";
 
-const Categories = ({navigation, route}) => {
+const Categories = ({ navigation, route }) => {
     const onSelected = (item) => {
-        navigation.navigate('Products', {name: item.title, categoryId: item.id})
+        navigation.navigate('Products', { name: item.title, categoryId: item.id });
     }
-    const renderItem = ({item}) => <CategoryItem item={item} onSelected={onSelected} />
+    const renderItem = ({ item }) => <CategoryItem item={item} onSelected={onSelected} />
     return (
-
         <FlatList 
-            data={categories} 
+            data={categories}
             renderItem={renderItem}
             keyExtractor={item => item.id.toString()}
-            style={styles.containerlist}
+            style={styles.containerList}
         />
     )
-}
+};
 
 export default Categories;

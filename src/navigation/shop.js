@@ -2,9 +2,11 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Categories, Products, Product } from "../screens";
 import { isAndroid } from "../utils";
-import { colors } from "../constants/themes"
+import { colors } from "../constants/themes";
+import { Text } from "react-native";
 
 const Stack = createNativeStackNavigator();
+
 
 const ShopNavigator = () => {
     return (
@@ -14,34 +16,33 @@ const ShopNavigator = () => {
                 headerStyle: {
                     backgroundColor: isAndroid ? colors.primary : colors.secondary,
                 },
-                headerTintColor: colors.white,
+                headerTintColor: colors.text,
                 headerTitleStyle: {
                     fontFamily: 'Lato-Bold',
-                }
+                },
             }}
         >
             <Stack.Screen 
-                name="Categories" 
-                component={Categories}
+                name="Categories"
+                component={Categories} 
                 options={{
-                    title: 'Tipos de panes',
-
+                    title: 'Categorias',
                 }}
             />
             <Stack.Screen 
                 name="Products" 
-                component={Products}
-                options={({route}) => ({
-                    title: route.params.name
+                component={Products} 
+                options={({ route }) => ({
+                    title: route.params.name,
                 })}
-            />
-            <Stack.Screen 
+                />
+            <Stack.Screen
                 name="Product" 
-                component={Product}
-                options={({route}) => ({
-                    title: route.params.name
+                component={Product} 
+                options={({ route }) => ({
+                    title: route.params.name,
                 })}
-            />
+                />
         </Stack.Navigator>
     )
 }
